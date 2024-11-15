@@ -26,7 +26,7 @@ services:
     restart: always
 
   miservidorphp:
-    image: alejandro14972/myservidorphp_mysql_config:tagname
+    image: alejandro14972/myservidorphp_mysql_config:v1
     container_name: miservidorphp
     ports:
       - "9090:80"
