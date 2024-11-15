@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  basedatos:
+    image: mysql:5.7
+    container_name: basedatos
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/alejandro/servicioweb/database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - my-network
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: basedatos
+    networks:
+      - my-network
+    restart: always
+
+  miservidorphp:
+    image: alejandro14972/myservidorphp_mysql_config:tagname
+    container_name: miservidorphp
+    ports:
+      - "9090:80"
+    volumes:
+      - /home/alejandro/servicioweb:/var/www/html
+    depends_on:
+      - basedatos
+    networks:
+      - my-network
+    restart: always
+
+networks:
+  my-network:
+    driver: bridge
