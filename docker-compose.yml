@@ -42,20 +42,3 @@ networks:
   my-network:
     driver: bridge
 
-
-    <?php
-$host = 'mysql-container'; // Nombre del contenedor MySQL
-$user = 'root';
-$password = 'root';
-$dbname = 'test';
-
-// Conexión
-$conn = new mysqli($host, $user, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-echo "Conexión exitosa a MySQL";
-?>
-
