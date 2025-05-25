@@ -3,6 +3,6 @@
 ## Deployment
 ```bash
 git clone https://github.com/alejandro14972/DockercomposePHPMysqlApache.git
-cd nombrecarpeta
+cd  DockercomposePHPMysqlApache
 docker-compose up -d
 ```
